@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicio Hotelerías Limón</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="#" onclick="mostrarVentana('agregar')">Agregar</a>
+      <a href="#" onclick="mostrarVentana('eliminar')">Eliminar</a>
+      <a href="#" onclick="mostrarVentana('modificar')">Modificar</a>
+      <a href="#" onclick="mostrarVentana('listar')">Listar</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" onclick="mostrarLogin()">
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="perfil" class="icono-usuario" />
+      </a>
+
+    </div>
+  </nav>
+
+  <!-- Cabecera principal -->
+  <header class="hero">
+    <h1>Servicio Hotelerías Limón</h1>
+  </header>
+
+  <!-- Contenedor para el contenido dinámico -->
+  <main id="contenido"></main>
+
+  <!-- Ventana de Login -->
+<div id="ventana-login" class="ventana-login oculto">
+  <h2>Iniciar Sesión</h2>
+  <form>
+    <div class="campo">
+      <input type="text" placeholder="Tipo de usuario" id="tipo-usuario" />
+    </div>
+    <div class="campo">
+      <input type="password" placeholder="Contraseña" id="contrasena" />
+    </div>
+    <button type="button" class="boton" onclick="cerrarLogin()">Ingresar</button>
+  </form>
+</div>
+
+  <script src="main.js"></script>
+</body>
+</html>
