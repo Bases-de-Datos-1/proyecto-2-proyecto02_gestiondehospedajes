@@ -172,7 +172,7 @@ BEGIN
     -- Validar si existe el hotel
     IF NOT EXISTS (SELECT 1 FROM ServicioHospedaje WHERE idHotel = @idHotel)
     BEGIN
-        RAISERROR('No se encontrÛ el hotel especificado.', 16, 1);
+        RAISERROR('No se encontr√≥ el hotel especificado.', 16, 1);
         RETURN;
     END
 
@@ -283,7 +283,7 @@ EXEC ConsultarHoteles @Provincia = 'Guanacaste', @Tipo = 'Boutique';
 EXEC ConsultarHoteles 
     @Provincia = 'Puntarenas',
     @Canton = 'Garabito',
-    @Distrito = 'JacÛ';
+    @Distrito = 'Jac√≥';
 
 
 select * from ServicioHospedaje
@@ -518,7 +518,7 @@ END;
 EXEC AgregarTipoHabitacion
     @idHotel = 1,
     @Nombre = 'Suite Deluxe',
-    @Descripcion = 'HabitaciÛn amplia con vista al mar y jacuzzi',
+    @Descripcion = 'Habitaci√≥n amplia con vista al mar y jacuzzi',
     @TipoCama = 'King',
     @Precio = 250.00;
 
@@ -561,7 +561,7 @@ EXEC ModificarTipoHabitacion
     @idTipoHabitacion = 3,
     @idHotel = 1,
     @Nombre = 'Suite Premium',
-    @Descripcion = 'Renovada con aire acondicionado y balcÛn',
+    @Descripcion = 'Renovada con aire acondicionado y balc√≥n',
     @TipoCama = 'Queen',
     @Precio = 220.00;
 
@@ -749,7 +749,7 @@ EXEC EliminarHabitacion
     @idHabitacion = 4;
 
 
---Modificar habitaciÛn
+--Modificar habitaci√≥n
 CREATE PROCEDURE ModificarHabitacion
     @idHabitacion INT,
     @idHotel INT,
@@ -824,13 +824,13 @@ END;
 --Parametros
 EXEC AgregarCliente
     @Nombre = 'Carlos',
-    @PrimerApellido = 'JimÈnez',
+    @PrimerApellido = 'Jim√©nez',
     @SegundoApellido = 'Solano',
     @FechaNacimiento = '1990-05-15',
     @TipoIdentificacion = 'Nacional',
     @Cedula = '123456789',
     @PaisResidencia = 'Costa Rica',
-    @Provincia = 'San JosÈ',
+    @Provincia = 'San Jos√©',
     @Canton = 'Central',
     @Distrito = 'Carmen',
     @Telefono1 = '8888-8888',
@@ -908,14 +908,14 @@ END;
 --Parametros
 EXEC ModificarCliente
     @idCliente = 1,
-    @Nombre = 'Carlos AndrÈs',
-    @PrimerApellido = 'JimÈnez',
+    @Nombre = 'Carlos Andr√©s',
+    @PrimerApellido = 'Jim√©nez',
     @SegundoApellido = 'Solano',
     @FechaNacimiento = '1990-05-15',
     @TipoIdentificacion = 'Nacional',
     @Cedula = '123456789',
     @PaisResidencia = 'Costa Rica',
-    @Provincia = 'San JosÈ',
+    @Provincia = 'San Jos√©',
     @Canton = 'Central',
     @Distrito = 'Carmen',
     @Telefono1 = '8888-8888',
@@ -956,7 +956,7 @@ BEGIN
     -- Validar hora de salida
     IF DATEPART(HOUR, @FechaSalida) > 12
     BEGIN
-        RAISERROR('La hora de salida no puede ser despuÈs del mediodÌa (12:00 p.m.).', 16, 1);
+        RAISERROR('La hora de salida no puede ser despu√©s del mediod√≠a (12:00 p.m.).', 16, 1);
         RETURN;
     END;
 
@@ -1065,7 +1065,7 @@ EXEC AgregarFactura
     @idReserva = 3,
     @FechaFacturacion = '2025-05-01',
     @TotalPagar = 120.50,
-    @MetodoPago = 'Tarjeta de crÈdito';
+    @MetodoPago = 'Tarjeta de cr√©dito';
 
 
 --Modificar una factura
@@ -1156,7 +1156,7 @@ EXEC AgregarEmpresaRecreacion
     @CedulaJuridica = '123456789012',
     @CorreoElectronico = 'contacto@recreacioneslimon.com',
     @Telefono = '88888888',
-    @NombrePersonaContacto = 'Juan PÈrez',
+    @NombrePersonaContacto = 'Juan P√©rez',
     @Provincia = 'Limon',
     @Canton = 'Limon',
     @Distrito = 'Centro',
@@ -1180,11 +1180,11 @@ BEGIN
     -- Verificar si la cedula ya existe para otra empresa
     IF EXISTS (SELECT 1 FROM EmpresasRecreaciones WHERE CedulaJuridica = @CedulaJuridica AND idEmpresaRecreaciones != @idEmpresaRecreacion)
     BEGIN
-        PRINT 'Error: La cedula juridica ya est· registrada para otra empresa.';
+        PRINT 'Error: La cedula juridica ya est√° registrada para otra empresa.';
         RETURN;
     END
 
-    -- Si no existe, se procede con la actualizaciÛn
+    -- Si no existe, se procede con la actualizaci√≥n
     UPDATE EmpresasRecreaciones
     SET 
         NombreEmpresa = @NombreEmpresa,
@@ -1208,7 +1208,7 @@ EXEC ModificarEmpresaRecreacion
     @CedulaJuridica = '7890123456',
     @CorreoElectronico = 'nuevo@recreacioneslimon.com',
     @Telefono = '77777777',
-    @NombrePersonaContacto = 'MarÌa Gonz·lez',
+    @NombrePersonaContacto = 'Mar√≠a Gonz√°lez',
     @Provincia = 'Limon',
     @Canton = 'Limon',
     @Distrito = 'Centro',
@@ -1328,7 +1328,7 @@ EXEC ModificarActividadRecreacion
     @idActividad = 5, 
     @idHotel = 1, 
     @idEmpresaRecreaciones = 2, 
-    @Descripcion = 'ExcursiÛn a la montaÒa', 
+    @Descripcion = 'Excursi√≥n a la monta√±a', 
     @Precio = 200.00;
 
 
@@ -1396,22 +1396,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ActividadRecreaciones TO AdminHotel;
 -- Permiso para ejecutar procedimientos relacionados a hoteles
 GRANT EXECUTE ON SCHEMA :: dbo TO [AdminHotel];
 
--- Cambiar al contexto de AdminCliente
-EXECUTE AS USER = 'AdminHotel';
-GO
 
--- Comprobar usuario actual
-SELECT USER_NAME() AS UsuarioActual;
-
--- Probar SELECT (deberÌa funcionar)
-SELECT * FROM ServicioHospedaje;
-
--- Probar ejecutar un procedimiento
-EXEC ConsultarClientes;
-
--- Volver al contexto original
-REVERT;
-GO
 
 
 -- Permisos sobre tablas relacionadas a clientes
@@ -1423,19 +1408,170 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON EmpresasRecreaciones TO AdminCliente;
 -- Permiso para ejecutar procedimientos relacionados
 GRANT EXECUTE ON SCHEMA :: dbo TO [AdminCliente];
 
--- Cambiar al contexto de AdminCliente
-EXECUTE AS USER = 'AdminCliente';
+SELECT * FROM ServicioHospedaje;
+
+
+------------------------ Crear los triggers ----------------------------------------
+
+-- =========================================================================================
+-- TRIGGER 1: Este trigger bloquea la eliminaci√≥n de hotel si tiene habitaciones asociadas
+-- =========================================================================================
+CREATE TRIGGER TRG_PreventDeleteHotelConHabitaciones
+ON ServicioHospedaje
+INSTEAD OF DELETE
+AS
+BEGIN
+    -- Este trigger evita que se elimine un hotel si hay habitaciones asociadas a el
+    IF EXISTS (
+        SELECT 1 
+        FROM DatosHabitaciones DH
+        INNER JOIN deleted d ON DH.idHotel = d.idHotel
+    )
+    BEGIN
+        RAISERROR('No se puede eliminar el hotel porque tiene habitaciones registradas.', 16, 1);
+        RETURN;
+    END
+
+    -- Aqu√≠ si no hay habitaciones asociadas, se permite la eliminaci√≥n
+    DELETE FROM ServicioHospedaje
+    WHERE idHotel IN (SELECT idHotel FROM deleted);
+END;
 GO
 
--- Comprobar usuario actual
-SELECT USER_NAME() AS UsuarioActual;
 
--- Probar SELECT (deberÌa funcionar)
-SELECT * FROM Cliente;
+-- =================================================================
+-- TRIGGER 2: Generar factura autom√°tica al agregar una reservaci√≥n
+-- =================================================================
+CREATE TRIGGER TRG_GenerarFacturaAlReservar
+ON Reservaciones
+AFTER INSERT
+AS
+BEGIN
 
--- Probar ejecutar un procedimiento
-EXEC ConsultarClientes;
+    -- Este trigger crea autom√°ticamente una factura cuando se ingresa una reservaci√≥n 
+    DECLARE @idReserva INT, @TotalPagar DECIMAL(10,2), @Dias INT, @idHabitacion INT, @Precio DECIMAL(10,2)
 
--- Volver al contexto original
-REVERT;
+    -- Ac√° se toman los datos de la reservaci√≥n que se acaba de insertar
+    SELECT 
+        @idReserva = idReserva,
+        @idHabitacion = idHabitacion,
+        @Dias = DATEDIFF(DAY, FechaIngreso, FechaSalida)
+    FROM inserted
+
+    -- En esta parte se consulta el precio por noche de la habitaci√≥n
+    SELECT @Precio = TH.Precio
+    FROM DatosHabitaciones DH
+    INNER JOIN TipoHabitacion TH ON DH.idTipoHabitacion = TH.idTipoHabitacion
+    WHERE DH.idHabitacion = @idHabitacion
+
+    -- Calcular el total a pagar
+    SET @TotalPagar = @Dias * @Precio
+
+    -- Ac√° se inserta la factura con estado pendiente
+    INSERT INTO Facturas (idReserva, FechaFacturacion, TotalPagar, MetodoPago)
+    VALUES (@idReserva, GETDATE(), @TotalPagar, 'Pendiente');
+END;
 GO
+
+
+-- ========================================================================
+-- TRIGGER 3: Validar que la fecha de salida sea posterior a la de ingreso
+-- ========================================================================
+CREATE TRIGGER TRG_ValidarFechasReservacion
+ON Reservaciones
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    -- Este trigger lo que hace es que verifica que
+	-- las fechas de la reservaci√≥n sean correctas
+    IF EXISTS (
+        SELECT 1
+        FROM inserted
+        WHERE FechaSalida <= FechaIngreso
+    )
+    BEGIN
+        RAISERROR('La fecha de salida debe ser posterior a la fecha de ingreso.', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;
+GO
+
+------------------------ Crear las vistas (2) ----------------------------------------
+
+-- ==============================================
+-- VISTA 1: Vista de reservaciones completas
+-- Incluye datos del cliente, habitaci√≥n y hotel
+-- ==============================================
+CREATE VIEW VistaReservacionesCompletas AS
+SELECT 
+    R.idReserva,
+    C.Nombre + ' ' + C.PrimerApellido + ' ' + C.SegundoApellido AS NombreCliente,
+    H.NombreHotel AS NombreHotel,
+    DH.Numero AS NumeroHabitacion,
+    TH.Nombre AS TipoHabitacion,
+    R.FechaIngreso,
+    R.FechaSalida,
+    R.CantidadPersonas,
+    R.Vehiculo
+FROM Reservaciones R
+INNER JOIN Cliente C ON R.idCliente = C.idCliente
+INNER JOIN DatosHabitaciones DH ON R.idHabitacion = DH.idHabitacion
+INNER JOIN TipoHabitacion TH ON DH.idTipoHabitacion = TH.idTipoHabitacion
+INNER JOIN ServicioHospedaje H ON DH.idHotel = H.idHotel;
+GO
+
+
+-- =============================================
+-- VISTA 2: Vista de Facturas Detalladas
+-- Incluye info de la reservaci√≥n y la factura
+-- =============================================
+CREATE VIEW VistaFacturasDetalladas AS
+SELECT 
+    F.idFactura,
+    F.FechaFacturacion,
+    F.TotalPagar,
+    F.MetodoPago,
+    C.Nombre + ' ' + C.PrimerApellido AS NombreCliente,
+    H.NombreHotel AS NombreHotel,
+    DH.Numero AS NumeroHabitacion,
+    TH.Nombre AS TipoHabitacion
+FROM Facturas F
+INNER JOIN Reservaciones R ON F.idReserva = R.idReserva
+INNER JOIN Cliente C ON R.idCliente = C.idCliente
+INNER JOIN DatosHabitaciones DH ON R.idHabitacion = DH.idHabitacion
+INNER JOIN TipoHabitacion TH ON DH.idTipoHabitacion = TH.idTipoHabitacion
+INNER JOIN ServicioHospedaje H ON DH.idHotel = H.idHotel;
+GO
+
+
+------------------------ Crear los √≠ndices ----------------------------------------
+
+-- ======================================================
+-- Indice para buscar r√°pidamente por c√©dula de cliente
+-- ======================================================
+CREATE INDEX IDX_Cliente_Cedula ON Cliente (Cedula);
+
+
+-- ========================================================
+-- Indice para mejorar consultas de habitaciones por hotel
+-- ========================================================
+CREATE INDEX IDX_DatosHabitaciones_Hotel ON DatosHabitaciones (idHotel);
+
+
+-- ============================
+-- Indice para buscar r√°pido actividades por empresa recreativa
+-- ============================
+CREATE INDEX IDX_Actividad_Empresa ON ActividadRecreaciones (idEmpresaRecreaciones);
+
+
+-- ============================
+-- Indice para buscar facturas por idReserva
+-- ============================
+CREATE INDEX IDX_Facturas_Reserva ON Facturas (idReserva);
+
+
+-- ============================
+-- Indice para mejorar consultas de reservaciones por cliente y habitaci√≥n
+-- ============================
+CREATE INDEX IDX_Reservaciones_Cliente_Habitacion ON Reservaciones (idCliente, idHabitacion);
+
